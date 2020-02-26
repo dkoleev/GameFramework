@@ -4,7 +4,7 @@
     "displayName": "Game Development Tools",
     "description": "Tools for create game in Unity",
     "unity": "2019.3",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "keywords": [
         "tools",
         "avocado",
