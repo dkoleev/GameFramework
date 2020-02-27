@@ -22,7 +22,6 @@ namespace Avocado.Framework.Patterns.AbstractFactory {
         public static T Create(string type) {
             if (!_types.ContainsKey(type)) {
                 throw new KeyNotFoundException("Not found key for type " + type);
-                return null;
             }
 
             return Activator.CreateInstance(_types[type]) as T;
