@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Avocado.Game.Data;
-using Avocado.Game.Utilities;
 
-namespace Avocado.Framework.Game.Patterns.AbstractFactory {
+namespace Avocado.Framework.Patterns.AbstractFactory {
     public class Factory<T> where T : class {
         private static readonly Dictionary<string, Type> _types = new Dictionary<string, Type>();
 
@@ -23,7 +21,7 @@ namespace Avocado.Framework.Game.Patterns.AbstractFactory {
 
         public static T Create(string type) {
             if (!_types.ContainsKey(type)) {
-                AvocadoLogger.LogError("Can't found object with type " + type);
+                throw new KeyNotFoundException("Not found key for type " + type);
                 return null;
             }
 
