@@ -3,9 +3,9 @@
   "displayName": "Avocado Framework",
   "version": "0.0.1",
   "unity": "2018.3",
-  "description": "Sensible Unity/C# Configuration",
-  "keywords": [ "config", "file", "data" ],
-  "category": "penis lmao",
+  "description": "Framework for game development",
+  "keywords": [ "tools", "framework", "avocado" ],
+  "category": "Framework",
   "dependencies": {
   }
 }
