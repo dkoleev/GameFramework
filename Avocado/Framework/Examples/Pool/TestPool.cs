@@ -12,6 +12,10 @@ namespace Avocado.Framework.Examples.Pool {
         private float _spawnDelay = 2.0f;
         [SerializeField]
         private float _releaseDelay = 10.0f;
+        [SerializeField]
+        private float _optimizeAfter = 10.0f;
+        [SerializeField]
+        private float _clearAfter = 15.0f;
 
         [SerializeField]
         private bool _useFirstPool;
@@ -33,6 +37,8 @@ namespace Avocado.Framework.Examples.Pool {
 
             StartCoroutine(SpawnEnemy());
             StartCoroutine(DestroyEnemy());
+            StartCoroutine(Optimize());
+            StartCoroutine(Clear());
         }
 
         private void Update() {
@@ -60,6 +66,16 @@ namespace Avocado.Framework.Examples.Pool {
                 
                 _enemies.Clear();
             }
+        }
+
+        private IEnumerator Optimize() {
+            yield return new WaitForSeconds(_optimizeAfter);
+            _currentPool.Optimize();
+        }
+        
+        private IEnumerator Clear() {
+            yield return new WaitForSeconds(_optimizeAfter);
+            _currentPool.Clear();
         }
     }
 }

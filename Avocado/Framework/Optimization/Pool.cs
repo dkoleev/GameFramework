@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Logger = Avocado.Framework.Utilities.Logger;
 using Object = UnityEngine.Object;
 
 namespace Avocado.Framework.Optimization {
@@ -42,6 +43,7 @@ namespace Avocado.Framework.Optimization {
                 obj.Release();
                 _free.Push(obj);
             }
+            Logger.LogWarning("increase. current " + _free.Count);
         }
 
         public T Get() {
@@ -59,6 +61,11 @@ namespace Avocado.Framework.Optimization {
         }
 
         public void Release(T obj) {
+            if (obj == null) {
+                Logger.LogWarning("Trying release null object");
+                return;
+            }
+
             obj.Release();
 
             if (_used.Contains(obj)) {
@@ -67,6 +74,29 @@ namespace Avocado.Framework.Optimization {
             } else {
                 Debug.Log("pool not contain object - " + obj.name);
             }
+        }
+
+        /// <summary>
+        /// Remove free objects in pool. Use it when pool is to large for current needs
+        /// </summary>
+        public void Optimize() {
+            Logger.LogWarning("optimize " + _free.Count);
+            foreach (var component in _free) {
+                Object.Destroy(component.gameObject);
+            }
+            _free.Clear();
+        }
+
+        public void Clear() {
+            foreach (var component in _free) {
+                Object.Destroy(component.gameObject);
+            }
+            _free.Clear();
+            foreach (var component in _used) {
+                component.Release();
+                Object.Destroy(component);
+            }
+            _used.Clear();
         }
     }
 }
