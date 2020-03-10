@@ -43,7 +43,6 @@ namespace Avocado.Framework.Optimization {
                 obj.Release();
                 _free.Push(obj);
             }
-            Logger.LogWarning("increase. current " + _free.Count);
         }
 
         public T Get() {
@@ -94,7 +93,7 @@ namespace Avocado.Framework.Optimization {
             _free.Clear();
             foreach (var component in _used) {
                 component.Release();
-                Object.Destroy(component);
+                Object.Destroy(component.gameObject);
             }
             _used.Clear();
         }

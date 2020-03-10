@@ -26,6 +26,9 @@ namespace Avocado.Framework.Examples.Pool {
         private Pool<Enemy> _currentPool;
         private List<Enemy> _enemies = new List<Enemy>();
         private bool _currentPoolBufferState = false;
+
+        private Coroutine _spawnCor;
+        private Coroutine _destoryCor;
         
         private void Start() {
             _currentPoolBufferState = _useFirstPool;
@@ -35,8 +38,8 @@ namespace Avocado.Framework.Examples.Pool {
 
             _currentPool = _useFirstPool ? _enemyPool : _enemyPool2;
 
-            StartCoroutine(SpawnEnemy());
-            StartCoroutine(DestroyEnemy());
+            _spawnCor =  StartCoroutine(SpawnEnemy());
+            _destoryCor = StartCoroutine(DestroyEnemy());
             StartCoroutine(Optimize());
             StartCoroutine(Clear());
         }
@@ -70,11 +73,15 @@ namespace Avocado.Framework.Examples.Pool {
 
         private IEnumerator Optimize() {
             yield return new WaitForSeconds(_optimizeAfter);
+            StopCoroutine(_spawnCor);
+            StopCoroutine(_destoryCor);
             _currentPool.Optimize();
         }
         
         private IEnumerator Clear() {
-            yield return new WaitForSeconds(_optimizeAfter);
+            yield return new WaitForSeconds(_clearAfter);
+            StopCoroutine(_spawnCor);
+            StopCoroutine(_destoryCor);
             _currentPool.Clear();
         }
     }
