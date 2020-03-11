@@ -1,4 +1,5 @@
 using Avocado.Framework.Optimization;
+using Avocado.Framework.Optimization.Pool;
 using UnityEngine;
 
 namespace Avocado.Framework.Examples.Pool {

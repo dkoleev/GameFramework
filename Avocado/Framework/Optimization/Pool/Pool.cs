@@ -3,7 +3,7 @@ using UnityEngine;
 using Logger = Avocado.Framework.Utilities.Logger;
 using Object = UnityEngine.Object;
 
-namespace Avocado.Framework.Optimization {
+namespace Avocado.Framework.Optimization.Pool {
     public enum PoolType {
         WillGrow, // create new object if trying get from fulled pool
         ReplaceActive, //change one from active object with new if pool is full
