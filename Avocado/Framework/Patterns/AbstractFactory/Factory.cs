@@ -9,7 +9,9 @@ namespace Avocado.Framework.Patterns.AbstractFactory {
 
         static Factory() {
             var temp = Assembly.GetAssembly(typeof(T)).GetTypes().Where(mType =>
-                mType.IsClass && !mType.IsAbstract && mType.IsSubclassOf(typeof(T))).ToList();
+                !mType.IsAbstract &&
+                (mType.IsSubclassOf(typeof(T)) || mType.GetInterfaces().Contains(typeof(T)))
+                 ).ToList();
 
             foreach (var type in temp) {
                 var attr = type.GetCustomAttribute<ObjectTypeAttribute>();
