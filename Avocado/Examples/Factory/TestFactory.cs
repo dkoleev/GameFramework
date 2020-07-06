@@ -2,7 +2,7 @@ using Avocado.Framework.Patterns.AbstractFactory;
 using UnityEngine;
 using Logger = Avocado.Framework.Utilities.Logger;
 
-namespace Avocado.Framework.Examples.Factory
+namespace Avocado.Examples.Factory
 {
     public class TestFactory : MonoBehaviour
     {

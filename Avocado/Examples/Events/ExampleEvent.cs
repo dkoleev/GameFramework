@@ -1,4 +1,4 @@
-namespace Avocado.Framework.Examples.Events {
+namespace Avocado.Examples.Events {
     public readonly struct ExampleEvent {
         public readonly float SomeValue;
 

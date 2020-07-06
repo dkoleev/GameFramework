@@ -1,4 +1,4 @@
-namespace Avocado.Framework.Examples.Factory
+namespace Avocado.Examples.Factory
 {
     public abstract class BaseClassA
     {

@@ -1,11 +1,11 @@
 using Avocado.Framework.Patterns.AbstractFactory;
 using JetBrains.Annotations;
 
-namespace Avocado.Framework.Examples.Factory
+namespace Avocado.Examples.Factory
 {
     [UsedImplicitly]
-    [ObjectType("StructB")]
-    public readonly struct StructB : IComponent
+    [ObjectType("StructA")]
+    public readonly struct StructA : IComponent
     {
         
     }

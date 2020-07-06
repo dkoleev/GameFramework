@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Avocado.Framework.Optimization;
 using Avocado.Framework.Optimization.Pool;
 using UnityEngine;
 
-namespace Avocado.Framework.Examples.Pool {
+namespace Avocado.Examples.Pool {
     public class TestPool : MonoBehaviour {
         [SerializeField]private Enemy _enemyPrefab;
         [SerializeField]

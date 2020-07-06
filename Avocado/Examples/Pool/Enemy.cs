@@ -1,8 +1,7 @@
-using Avocado.Framework.Optimization;
 using Avocado.Framework.Optimization.Pool;
 using UnityEngine;
 
-namespace Avocado.Framework.Examples.Pool {
+namespace Avocado.Examples.Pool {
     public class Enemy : MonoBehaviour, IPoolable {
         public void Spawn() {
             gameObject.SetActive(true);

@@ -1,6 +1,6 @@
 using Avocado.Framework.Patterns.EventSystem;
 
-namespace Avocado.Framework.Examples.Events {
+namespace Avocado.Examples.Events {
     public class Example {
         public void TestEvent() {
             EventSystem<ExampleEvent>.Fire();
