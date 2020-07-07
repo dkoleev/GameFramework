@@ -10,13 +10,18 @@ namespace Avocado.Examples.Timer {
         [Serializable]
         public enum TestType {
             Base,
-            Repeat
+            Repeat,
+            Logged
         }
 
         [SerializeField]
         private TestType _testType;
+
+        private ITimeManager _timeManager;
         
         void Start() {
+            _timeManager = new TimeManager();
+            
             switch (_testType) {
                 case TestType.Base:
                     TestBase();
@@ -24,38 +29,42 @@ namespace Avocado.Examples.Timer {
                 case TestType.Repeat:
                     TestRepeat();
                     break;
+                case TestType.Logged:
+                    _timeManager = new TimeManagerLogWrapper(new TimeManager());
+                    TestBase();
+                    break;
             }
         }
 
         private void TestBase() {
-            var timer = TimeManager.Call(1.0f, () => {
+            var timer = _timeManager.Call(1.0f, () => {
                 Logger.Log("Pause Call");
             });
             timer.Pause();
             
-            TimeManager.Call(1.5f, () => {
+            _timeManager.Call(1.5f, () => {
                 Logger.Log("call timer");
             });
 
-            TimeManager.Call(3.0f, () => {
+            _timeManager.Call(3.0f, () => {
                 Logger.Log("Second Call");
                 timer.Resume();
             });
             
-            TimeManager.PauseAll();
-            TimeManager.Call(1.0f, TimeManager.ResumeAll);
+            _timeManager.PauseAll();
+            _timeManager.Call(1.0f, _timeManager.ResumeAll);
         }
 
         private void TestRepeat() {
-            var timer = TimeManager.RepeatCall(0.5f, () => {
+            var timer = _timeManager.RepeatCall(0.5f, () => {
                 Logger.Log("repeat call");
             });
 
-            TimeManager.Call(4.0f, () => {
+            _timeManager.Call(4.0f, () => {
                 timer.Pause();
-                TimeManager.Call(3.0f, () => {
+                _timeManager.Call(3.0f, () => {
                     timer.Resume();
-                    TimeManager.Call(3.0f, timer.Stop);
+                    _timeManager.Call(3.0f, timer.Stop);
                 });
             });
         }

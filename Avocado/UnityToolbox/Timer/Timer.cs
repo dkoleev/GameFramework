@@ -13,10 +13,16 @@ namespace Avocado.UnityToolbox.Timer {
         private bool _pause;
         private bool _stop;
         private bool _repeat;
-        private MonoBehaviourTimerHook _hook;
+        private TimeManager.MonoBehaviourTimerHook _hook;
         private bool _destroyed;
 
-        public Timer(Action action, float timer, bool useUnscaledDeltaTime, MonoBehaviourTimerHook hook, bool repeat) {
+        private Timer() { }
+
+        public Timer(Action action,
+            float timer,
+            bool useUnscaledDeltaTime,
+            TimeManager.MonoBehaviourTimerHook hook,
+            bool repeat) {
             _action = action;
             _time = timer;
             _currentTime = _time;
@@ -55,6 +61,7 @@ namespace Avocado.UnityToolbox.Timer {
             } else {
                 _currentTime -= Time.deltaTime;
             }
+
             if (_currentTime <= 0) {
                 _action();
                 if (_repeat) {
@@ -64,7 +71,7 @@ namespace Avocado.UnityToolbox.Timer {
                 }
             }
         }
-        
+
         private void DestroySelf() {
             if (_destroyed) {
                 return;
