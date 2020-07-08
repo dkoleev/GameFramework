@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Avocado.Framework.Patterns.AbstractFactory {
-    public class Factory<T> where T : class {
+namespace Avocado.Framework.Patterns.Factory.Simple.SimpleFactoryStatic {
+    public static class Factory<T> where T : class {
         private static readonly Dictionary<string, Type> _types = new Dictionary<string, Type>();
 
         static Factory() {

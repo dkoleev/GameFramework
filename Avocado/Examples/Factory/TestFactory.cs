@@ -1,4 +1,4 @@
-using Avocado.Framework.Patterns.AbstractFactory;
+using Avocado.Framework.Patterns.Factory.Simple.SimpleFactoryStatic;
 using UnityEngine;
 using Logger = Avocado.Framework.Utilities.Logger;
 
