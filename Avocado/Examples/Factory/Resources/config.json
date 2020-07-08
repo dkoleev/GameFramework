@@ -1,0 +1,10 @@
+{
+	"Components":{
+		"StructA" : {
+			"Type" : "StructA"
+		},
+		"StructB" : {
+			"Type" : "StructB"
+		}
+	}
+}
