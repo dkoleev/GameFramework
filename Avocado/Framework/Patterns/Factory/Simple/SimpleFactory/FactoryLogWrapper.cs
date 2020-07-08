@@ -1,10 +1,10 @@
 using Avocado.Framework.Utilities;
 
 namespace Avocado.Framework.Patterns.Factory.Simple.SimpleFactory {
-    public class SimpleFactoryLogWrapper<T> : IFactory<T> where T : class {
+    public class FactoryLogWrapper<T> : IFactory<T> where T : class {
         private IFactory<T> _baseFactory;
         
-        public SimpleFactoryLogWrapper(IFactory<T> baseFactory) {
+        public FactoryLogWrapper(IFactory<T> baseFactory) {
             _baseFactory = baseFactory;
         }
 
