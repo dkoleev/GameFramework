@@ -28,5 +28,13 @@ namespace Avocado.Framework.Patterns.Factory.Simple.SimpleFactoryStatic {
 
             return Activator.CreateInstance(_types[type]) as T;
         }
+        
+        public static T Create(string type, Object param) {
+            if (!_types.ContainsKey(type)) {
+                throw new KeyNotFoundException("Not found key for type " + type);
+            }
+
+            return Activator.CreateInstance(_types[type], param) as T;
+        }
     }
 }

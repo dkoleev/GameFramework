@@ -13,7 +13,7 @@ namespace Avocado.UnityToolbox.Loader.Json {
             var item = JObject.Load(reader);
             var type = item["Type"].ToObject<string>();
 
-            var obj = Factory<T>.Create(type);
+            var obj = Factory<T>.Create(type, item);
             
             return obj;
         }

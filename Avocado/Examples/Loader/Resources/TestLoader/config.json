@@ -1,0 +1,16 @@
+{
+	"Actors":{
+		"Zombie" : {
+			"Type" : "Zombie",
+			"Name" : "Cute zombie",
+			"Age" : 10,
+			"SomeZombieField" : "my name is shone"
+		},
+		"Troll" : {
+			"Type" : "Troll",
+			"Name" : "big daddy",
+			"Age" : 240,
+			"SomeTrollField" : 10
+		}
+	}
+}
