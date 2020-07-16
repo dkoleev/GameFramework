@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Avocado.Framework.Patterns.Factory.Simple.SimpleFactory;
 using Avocado.UnityToolbox.Loader.Json;
 using UnityEngine;
-using Logger = Avocado.Framework.Utilities.Logger;
+using Logger = Avocado.UnityToolbox.Logger;
 using StaticFactory = Avocado.Framework.Patterns.Factory.Simple.SimpleFactoryStatic;
 
 namespace Avocado.Examples.Factory

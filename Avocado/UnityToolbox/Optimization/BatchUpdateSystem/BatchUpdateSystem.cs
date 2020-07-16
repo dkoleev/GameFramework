@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Avocado.Framework.Optimization.BatchUpdateSystem {
+namespace Avocado.UnityToolbox.Optimization.BatchUpdateSystem {
     [DisallowMultipleComponent]
     public class BatchUpdateSystem : MonoBehaviour {
         public static BatchUpdateSystem Instance {

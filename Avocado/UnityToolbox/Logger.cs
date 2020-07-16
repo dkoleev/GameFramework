@@ -1,8 +1,9 @@
 ﻿#if AVOCADO_LOG
 using UnityEngine;
+
 #endif
 
-namespace Avocado.Framework.Utilities {
+namespace Avocado.UnityToolbox {
     public static class Logger {
         public static void Log(string message) {
 #if AVOCADO_LOG

@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Logger = Avocado.Framework.Utilities.Logger;
 using Object = UnityEngine.Object;
 
-namespace Avocado.Framework.Optimization.Pool {
+namespace Avocado.UnityToolbox.Optimization.Pool {
     public enum PoolType {
         WillGrow, // create new object if trying get from fulled pool
         ReplaceActive, //change one from active object with new if pool is full

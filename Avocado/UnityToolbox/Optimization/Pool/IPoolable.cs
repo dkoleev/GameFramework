@@ -1,4 +1,4 @@
-namespace Avocado.Framework.Optimization.Pool {
+namespace Avocado.UnityToolbox.Optimization.Pool {
     public interface IPoolable {
         void Spawn();
         void Release();

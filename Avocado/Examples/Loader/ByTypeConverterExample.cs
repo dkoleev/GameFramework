@@ -6,7 +6,7 @@ using Avocado.UnityToolbox.Loader.Json;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Logger = Avocado.Framework.Utilities.Logger;
+using Logger = Avocado.UnityToolbox.Logger;
 
 namespace Avocado.Examples.Loader {
     public class ByTypeConverterExample {

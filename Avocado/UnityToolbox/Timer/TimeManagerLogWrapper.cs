@@ -1,5 +1,4 @@
 using System;
-using Avocado.Framework.Utilities;
 
 namespace Avocado.UnityToolbox.Timer {
     public class TimeManagerLogWrapper : ITimeManager {

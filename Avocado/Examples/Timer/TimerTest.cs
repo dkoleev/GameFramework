@@ -1,7 +1,7 @@
 ﻿using System;
 using Avocado.UnityToolbox.Timer;
 using UnityEngine;
-using Logger = Avocado.Framework.Utilities.Logger;
+using Logger = Avocado.UnityToolbox.Logger;
 
 namespace Avocado.Examples.Timer {
 
