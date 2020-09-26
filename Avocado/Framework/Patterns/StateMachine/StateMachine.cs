@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Avocado.Framework.Patterns.StateMachine {
     public class StateMachine {
+        public Action<IState, IState> OnStateChanged;
+        
         private IState _currentState;
         private Dictionary<Type, List<Transition>> _transitions = new Dictionary<Type,List<Transition>>();
         private List<Transition> _currentTransitions = new List<Transition>();
@@ -24,7 +26,8 @@ namespace Avocado.Framework.Patterns.StateMachine {
             if (state == _currentState)
                 return;
       
-            _currentState?.Exit();
+            var prevState = _currentState;
+            prevState?.Exit();
             _currentState = state;
       
             _transitions.TryGetValue(_currentState.GetType(), out _currentTransitions);
@@ -33,6 +36,8 @@ namespace Avocado.Framework.Patterns.StateMachine {
             }
             
             _currentState.Enter();
+            
+            OnStateChanged?.Invoke(prevState, _currentState);
         }
 
         public void AddTransition(IState from, IState to, Func<bool> predicate)
