@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Avocado.Framework.Patterns.Factory.Simple.SimpleFactory {
-    public class Factory<T> : IFactory<T> where T : class {
-        private readonly Dictionary<string, Type> _types = new Dictionary<string, Type>();
+namespace Avocado.Framework.Patterns.Factory {
+    public class Factory<T> where T : class {
+        private readonly Dictionary<string, Type> _types;
 
         public Factory() {
+            _types = new Dictionary<string, Type>();
+            Initialize();
+        }
+
+        private void Initialize() {
             var temp = Assembly.GetAssembly(typeof(T)).GetTypes().Where(mType =>
                 !mType.IsAbstract &&
                 (mType.IsSubclassOf(typeof(T)) || mType.GetInterfaces().Contains(typeof(T)))
@@ -21,12 +26,14 @@ namespace Avocado.Framework.Patterns.Factory.Simple.SimpleFactory {
             }
         }
 
-        public T Create(string type) {
+        public T Create(string type, params Object[] data) {
             if (!_types.ContainsKey(type)) {
-                throw new KeyNotFoundException("Not found key for type " + type);
+                throw new KeyNotFoundException("Not found key for type " + type + " in " + typeof(T));
             }
 
-            return Activator.CreateInstance(_types[type]) as T;
+            var result = (T)Activator.CreateInstance(_types[type], data);
+
+            return result;
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Avocado.Framework.Patterns.Factory.Simple;
+using Avocado.Framework.Patterns.Factory;
 using Avocado.UnityToolbox.Loader.Json;
 using JetBrains.Annotations;
 using Newtonsoft.Json;

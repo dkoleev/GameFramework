@@ -1,8 +1,8 @@
 using System;
 
-namespace Avocado.Framework.Patterns.Factory.Simple {
+namespace Avocado.Framework.Patterns.Factory {
     public class ObjectTypeAttribute : Attribute{
-        public string Type { get; private set; }
+        public string Type { get; }
 
         public ObjectTypeAttribute(string type) {
             Type = type;
