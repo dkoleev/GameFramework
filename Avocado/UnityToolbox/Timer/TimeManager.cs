@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Avocado.UnityToolbox.Timer {
-    public class TimeManager : ITimeManager {
+    public class TimeManager : ITimeManager, IDisposable {
         private List<Timer> _timerList;
         private MonoBehaviourTimerHook _timerMonoBehaviourHook;
 
@@ -76,6 +76,14 @@ namespace Avocado.UnityToolbox.Timer {
 
         private void RemoveTimer(Timer timer) {
             _timerList.Remove(timer);
+        }
+
+        public void Dispose() {
+            var buffer = _timerList.ToArray();
+            foreach (var timer in buffer) {
+                timer.Dispose();
+            }
+            _timerMonoBehaviourHook.Destroy();
         }
     }
 }

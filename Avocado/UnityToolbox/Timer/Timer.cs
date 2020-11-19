@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 namespace Avocado.UnityToolbox.Timer {
-    public class Timer {
+    public class Timer : IDisposable {
         public Action<Timer> OnFinish;
 
         private readonly bool _useUnscaledDeltaTime;
@@ -71,6 +71,7 @@ namespace Avocado.UnityToolbox.Timer {
                 }
             }
         }
+        
 
         private void DestroySelf() {
             if (_destroyed) {
@@ -78,9 +79,13 @@ namespace Avocado.UnityToolbox.Timer {
             }
 
             _hook.OnUpdate -= Update;
-            _hook.Destroy();
 
             OnFinish?.Invoke(this);
+        }
+
+        public void Dispose() {
+            _destroyed = true;
+            _hook.OnUpdate -= Update;
         }
     }
 }
