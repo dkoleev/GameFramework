@@ -79,11 +79,18 @@ namespace Avocado.UnityToolbox.Timer {
         }
 
         public void Dispose() {
+            if (_timerList is null) {
+                return;
+            }
+
             var buffer = _timerList.ToArray();
             foreach (var timer in buffer) {
                 timer.Dispose();
             }
-            _timerMonoBehaviourHook.Destroy();
+
+            if (_timerMonoBehaviourHook != null) {
+                _timerMonoBehaviourHook.Destroy();
+            }
         }
     }
 }
