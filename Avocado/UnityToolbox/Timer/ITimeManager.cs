@@ -8,5 +8,6 @@ namespace Avocado.UnityToolbox.Timer {
         Timer RepeatCall(float delay, Action action, bool useUnscaledDeltaTime);
         void PauseAll();
         void ResumeAll();
+        void StopAll();
     }
 }

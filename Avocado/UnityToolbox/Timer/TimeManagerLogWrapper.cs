@@ -41,5 +41,10 @@ namespace Avocado.UnityToolbox.Timer {
             _baseTimeManager.ResumeAll();
             Logger.Log("ResumeAllTimers");
         }
+
+        public void StopAll() {
+            _baseTimeManager.StopAll();
+            Logger.Log("StopAllTimers");
+        }
     }
 }

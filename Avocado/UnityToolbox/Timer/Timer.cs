@@ -78,6 +78,7 @@ namespace Avocado.UnityToolbox.Timer {
             }
 
             _hook.OnUpdate -= Update;
+            _hook.Destroy();
 
             OnFinish?.Invoke(this);
         }

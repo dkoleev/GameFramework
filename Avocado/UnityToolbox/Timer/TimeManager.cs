@@ -36,12 +36,23 @@ namespace Avocado.UnityToolbox.Timer {
                 timer.Resume();
             }
         }
-        
+
+        public void StopAll() {
+            var buffer = _timerList.ToArray();
+            foreach (var timer in buffer) {
+                timer.Stop();
+            }
+        }
+
         public class MonoBehaviourTimerHook : MonoBehaviour {
             public Action OnUpdate;
 
             private void Update() {
                 OnUpdate?.Invoke();
+            }
+
+            public void Destroy() {
+                Destroy(gameObject);
             }
         }
 
