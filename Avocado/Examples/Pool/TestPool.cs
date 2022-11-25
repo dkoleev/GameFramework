@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Avocado.UnityToolbox.Optimization.Pool;
+using Avocado.Toolbox.Optimization.Pool;
 using UnityEngine;
 
 namespace Avocado.Examples.Pool {

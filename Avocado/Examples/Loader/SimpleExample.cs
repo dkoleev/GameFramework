@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Avocado.UnityToolbox;
-using Avocado.UnityToolbox.Loader.Json;
+using Avocado.Toolbox.Loader.Json;
+using Avocado.Toolbox.Logger;
 
 namespace Avocado.Examples.Loader {
     public class SimpleExample {
@@ -9,7 +9,7 @@ namespace Avocado.Examples.Loader {
             var loader = new JsonLoader();
             var data = loader.LoadObject<Data>("TestLoader/config");
             foreach (var actor in data.Actors) {
-                Logger.Log($"actor type: {actor.Key}, name: {actor.Value.Name}, age: {actor.Value.Age}");
+                GameLogger.Log($"actor type: {actor.Key}, name: {actor.Value.Name}, age: {actor.Value.Age}");
             }
         }
         

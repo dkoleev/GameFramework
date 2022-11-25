@@ -1,0 +1,16 @@
+{
+    "name": "Avocado.Toolbox",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1a4ce56a965a93442869544b09351753"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

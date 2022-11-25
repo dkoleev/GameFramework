@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Avocado.Framework.Patterns.Factory;
-using Avocado.UnityToolbox.Loader.Json;
+using Avocado.Toolbox.Loader.Json;
+using Avocado.Toolbox.Logger;
+using Avocado.Toolbox.Patterns.Factory;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Logger = Avocado.UnityToolbox.Logger;
 
 namespace Avocado.Examples.Loader {
     public class ByTypeConverterExample {
@@ -14,11 +14,11 @@ namespace Avocado.Examples.Loader {
             var loader = new JsonLoader();
             var data = loader.LoadObject<Data>("TestLoader/config");
             foreach (var actor in data.Actors) {
-                Logger.Log(actor.Value.GetType().ToString());
+                GameLogger.Log(actor.Value.GetType().ToString());
             }
 
             var zombie = data.Actors.Values.First(actor => actor is Zombie) as Zombie;
-            Logger.Log(zombie?.SomeZombieField);
+            GameLogger.Log(zombie?.SomeZombieField);
         }
         
         [Serializable]
