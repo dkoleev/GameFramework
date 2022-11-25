@@ -1,7 +1,4 @@
-﻿#if AVOCADO_LOG
-using UnityEngine;
-
-#endif
+﻿using UnityEngine;
 
 namespace Avocado.Toolbox.Logger {
     public static class GameLogger {
