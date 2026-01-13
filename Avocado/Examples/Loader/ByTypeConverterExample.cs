@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Avocado.Toolbox;
 using Avocado.Toolbox.Loader.Json;
-using Avocado.Toolbox.Logger;
 using Avocado.Toolbox.Patterns.Factory;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
@@ -14,11 +14,11 @@ namespace Avocado.Examples.Loader {
             var loader = new JsonLoader();
             var data = loader.LoadObject<Data>("TestLoader/config");
             foreach (var actor in data.Actors) {
-                GameLogger.Log(actor.Value.GetType().ToString());
+                GameLogger.Info(actor.Value.GetType().ToString());
             }
 
             var zombie = data.Actors.Values.First(actor => actor is Zombie) as Zombie;
-            GameLogger.Log(zombie?.SomeZombieField);
+            GameLogger.Info(zombie?.SomeZombieField);
         }
         
         [Serializable]

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Avocado.Toolbox;
 using Avocado.Toolbox.Loader.Json;
-using Avocado.Toolbox.Logger;
 using Avocado.Toolbox.Patterns.Factory;
 using UnityEngine;
 
@@ -20,7 +20,7 @@ namespace Avocado.Examples.Factory
                 var loader = new JsonLoader();
                 var data = loader.LoadObject<ConfigData>("config");//objects creating by factory inside TypeBaseConverter
                 foreach (var item in data.Components) {
-                    GameLogger.Log(item.Value.GetType().ToString());
+                    GameLogger.Info(item.Value.GetType().ToString());
                 }
             }
         }
@@ -38,7 +38,7 @@ namespace Avocado.Examples.Factory
             var factory = new Factory<IComponent>();
             var c1 = factory.Create("StructA");
             
-            GameLogger.Log(c1.GetType().ToString());
+            GameLogger.Info(c1.GetType().ToString());
         }
     }
 }

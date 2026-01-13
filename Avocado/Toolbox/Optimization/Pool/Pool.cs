@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Avocado.Toolbox.Logger;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -61,7 +60,7 @@ namespace Avocado.Toolbox.Optimization.Pool {
 
         public void Release(T obj) {
             if (obj == null) {
-                GameLogger.LogWarning("Trying release null object");
+                GameLogger.Warn("Trying release null object");
                 return;
             }
 
@@ -79,7 +78,7 @@ namespace Avocado.Toolbox.Optimization.Pool {
         /// Remove free objects in pool. Use it when pool is to large for current needs
         /// </summary>
         public void Optimize() {
-            GameLogger.LogWarning("optimize " + _free.Count);
+            GameLogger.Warn("optimize " + _free.Count);
             foreach (var component in _free) {
                 Object.Destroy(component.gameObject);
             }
